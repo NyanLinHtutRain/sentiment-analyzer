@@ -1,6 +1,6 @@
 # 💬 AI-Powered Sentiment Analyzer (Serverless on AWS)
 
-This project is a fully serverless web application that performs real-time sentiment analysis using **Amazon Comprehend**, logs user input and results in **DynamoDB**, and delivers everything through a clean, interactive frontend hosted on **GitHub Pages**.
+This project is a fully serverless web app that performs real-time sentiment analysis using **Amazon Comprehend**, stores results in **DynamoDB**, and delivers an interactive frontend via **GitHub Pages**.
 
 ---
 
@@ -9,61 +9,66 @@ This project is a fully serverless web application that performs real-time senti
 
 ---
 
-## 🧠 What It Does
+## 🧠 Features
 
-- Takes user text input from the browser
-- Sends it through a secure POST request to an AWS Lambda backend
-- Performs sentiment analysis using Amazon Comprehend (POSITIVE, NEGATIVE, NEUTRAL, MIXED)
-- Logs the text, result, and confidence score into DynamoDB
-- Returns sentiment + confidence live to the user
-
----
-
-## 🧱 Built With
-
-| Component     | Technology             |
-|---------------|-------------------------|
-| UI / Frontend | HTML, JavaScript        |
-| Hosting       | GitHub Pages            |
-| API Gateway   | AWS API Gateway         |
-| Backend       | AWS Lambda (Python)     |
-| AI Engine     | Amazon Comprehend       |
-| Database      | AWS DynamoDB            |
-| Auth Control  | IAM Role-based Policies |
+- Real-time sentiment detection: **POSITIVE**, **NEGATIVE**, **NEUTRAL**, **MIXED**
+- Backend powered by **AWS Lambda + Amazon Comprehend**
+- Logs results to **DynamoDB**
+- Hosted on **GitHub Pages** (fully free-tier)
+- Clean and simple HTML/JS frontend
 
 ---
 
-## ⚙️ Architecture Overview
+## 🖼️ Screenshots
 
-[ GitHub Pages (Static Site) ] ↓ [ API Gateway (POST /sentiment) ] ↓ [ Lambda Function (Python) ] ↓ [ Amazon Comprehend + DynamoDB ]
+### ✅ Sample Sentiment Result  
+Shows how the app analyzes text input and returns sentiment with confidence levels.
 
+![Sample Result](images/sentiment-result.png)
 
+### ✅ DynamoDB Logging  
+Backend logs are stored in DynamoDB with text, sentiment, and timestamp.
 
-
----
-
-## 📂 Project Structure
-
-sentiment-analyzer/ ├── index.html # Main frontend interface ├── README.md # This file
-
-
+![DynamoDB Log](images/dynamodb-logging.png)
 
 ---
 
-## 🧪 How It Was Built
+## ⚙️ Lambda Function Overview
 
-1. Created Lambda function (Python) to call Amazon Comprehend and write to DynamoDB
-2. Deployed REST API via AWS API Gateway (with full CORS + IAM)
-3. Created a simple HTML frontend using fetch API to POST text
-4. Enabled S3 + GitHub Pages for static site hosting
-5. Linked it all together into a serverless full-stack app
+This Lambda function performs three things:
+1. Accepts a POST request containing user input
+2. Calls Amazon Comprehend to analyze sentiment
+3. Logs results to DynamoDB with timestamp and UUID
+
+
+## ⚙️ Lambda Function Architecture
+
+This is the structure of the backend logic (you can replace this image with your own Lambda setup screenshot from AWS Console).
+
+![Lambda Diagram](images/lambda-architecture.png)
+
+- Triggered by API Gateway (POST `/sentiment`)
+- Runs a Python Lambda function
+- Calls Amazon Comprehend
+- Writes the result into DynamoDB
 
 ---
+# 🔧 Tech Stack
 
-## 🙌 Author
+Layer	Technology
 
-Built by **Rain ☁️**  
-Deployed 100% with AWS Free Tier + GitHub.  
-Feel free to fork, clone, and extend!
+Frontend	HTML, JavaScript
+Backend	AWS Lambda (Python)
+AI Engine	Amazon Comprehend
+Database	DynamoDB
+API Layer	API Gateway (REST)
+Hosting	GitHub Pages
+
+# 🧱 Architecture
+GitHub Pages → API Gateway → Lambda → Comprehend + DynamoDB
+
+# 🙌 Built By
+Rain ☁️ – deployed using AWS Free Tier and GitHub Pages.
+
 
 ---

@@ -50,7 +50,7 @@ sentiment-analyzer/ ├── index.html # Main frontend interface ├── REA
 
 ---
 
-## 🧪 How It Was Built (in 2 hours)
+## 🧪 How It Was Built
 
 1. Created Lambda function (Python) to call Amazon Comprehend and write to DynamoDB
 2. Deployed REST API via AWS API Gateway (with full CORS + IAM)
